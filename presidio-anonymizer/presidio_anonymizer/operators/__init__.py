@@ -12,7 +12,7 @@ from .keep import Keep
 from .mask import Mask
 from .redact import Redact
 from .replace import Replace
-
+from .initial import Initial
 try:
     from .ahds_surrogate import AHDSSurrogate
     AHDS_AVAILABLE = True
@@ -37,6 +37,7 @@ __all__ = [
     "AESCipher",
     "OperatorsFactory",
     "AHDS_AVAILABLE",
+    "Initial"
 ]
 
 if AHDS_AVAILABLE:
