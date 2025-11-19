@@ -37,7 +37,7 @@ __all__ = [
     "AESCipher",
     "OperatorsFactory",
     "AHDS_AVAILABLE",
-    "Initial"
+    "Initial",
 ]
 
 if AHDS_AVAILABLE:
