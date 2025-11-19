@@ -12,3 +12,7 @@ def test_given_value_for_initial(input_text, initials):
     assert text == initials
 def test_correct_name():
     assert Initial().operator_name() == "initial"
+def test_initial_trims_whitespace():
+    operator = Initial()
+    result = operator.anonymize("     Eastern    Michigan   University ")
+    assert result == "E. M. U."
