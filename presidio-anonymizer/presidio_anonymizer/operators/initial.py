@@ -18,8 +18,26 @@ class Initial(Operator):
     def operator_type(self) -> OperatorType:
         """Return operator type."""
         return OperatorType.Anonymize
-    def anonymize(self, text: str) -> str:
-        # Remove leading/trailing/multiple spaces
-        words = text.strip().split()
-        initials = [word[0].upper() + "." for word in words]
+    def anonymize(self, value: str) -> str:
+        if not value:
+            return ""
+
+        prefix = ""
+        first_alnum_index = None
+
+        for i, ch in enumerate(value):
+            if ch.isalnum():
+                first_alnum_index = i
+                break
+            else:
+                prefix += ch
+
+        if prefix.strip() != "":
+        # Only return prefix + first alnum
+            first = value[first_alnum_index].upper() if first_alnum_index is not None else ""
+            return prefix + first + "."
+
+        # MODE 2: no symbolic prefix → return initials of all words
+        words = value.split()
+        initials = [w[0].upper() + "." for w in words if w]
         return " ".join(initials)
