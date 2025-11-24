@@ -13,17 +13,19 @@ From the <module> sample.py (line 35),
 to the main method in sample.py (line 29), 
 to the run_anonymizer method in the sample.py (line 13)
 to the anonymize method in AnonymizerEngine Class (line 104)
-[complete the call stack here]
+to the _operate method in EngineBase Class
 ```
 
 * How many if/elif branches are used in selecting the operator?
-*Put your answer here*
+Zero
 
 * What data structure (a Python data type) exactly is used to select the operator?
-*Put your answer here*
+A python dictionary, essentially a hash map.
 
 * Explain how "Strategy" design pattern is reflected here.
-
+The Operator classes all implement the same interface (Operator).
+The factory selects and returns one of these interchangeable behaviors at runtime.
+Because strategies are stored in a dictionary and selected dynamically, the system can be extended without modifying existing logic — following the Open Closed Principle.
 
 ---
 
